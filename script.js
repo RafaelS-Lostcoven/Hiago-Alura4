@@ -1,8 +1,11 @@
-// Get all the steps
-const steps = document.querySelectorAll('.passo');
+const avanca = document.querySelectorAll('.btn-proximo');
 
-// Add event listeners to the buttons
-document.querySelectorAll('.btn-proximo').forEach((button) => {
-  button.addEventListener('click', (e) => {
-    const nextStepId = e.target.dataset.proximo;
-    const nextStep = document.getElementById(`passo-${nextStepId
+avanca.forEach(button => {
+    button.addEventListener('click', function(){
+        const atual = document.querySelector('.ativo');
+        const proximoPasso = 'passo-' + this.getAttribute('data-proximo');
+
+        atual.classList.remove('ativo');
+        document.getElementById(proximoPasso).classList.add('ativo');
+    })
+})
